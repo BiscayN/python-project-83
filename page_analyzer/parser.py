@@ -11,7 +11,9 @@ def parse_content(content):
     title = title_tag.text.strip() if title_tag else ""
 
     meta_desc = soup.find("meta", attrs={"name": "description"})
-    description = meta_desc.get("content", "").strip() if meta_desc and meta_desc.get("content") else ""
+    description = meta_desc.get(
+        "content", "").strip() if meta_desc and meta_desc.get(
+        "content") else ""
 
     return {
         "h1": h1,
