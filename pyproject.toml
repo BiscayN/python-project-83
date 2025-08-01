@@ -3,15 +3,27 @@ name = "hexlet-code"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.10"
 dependencies = [
-    "flask",
+    "Flask",
     "gunicorn",
     "python-dotenv",
     "requests",
     "beautifulsoup4",
+    "psycopg2-binary",
+    "validators",
 ]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
 
 [tool.ruff]
 line-length = 120
-select = ["E", "F", "W", "I"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "Q"]
+ignore = ["E501"]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]
