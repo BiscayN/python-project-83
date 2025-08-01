@@ -3,8 +3,9 @@ import os
 import requests
 from dotenv import load_dotenv
 from flask import Flask, flash, redirect, render_template, request, url_for
-from page_analyzer.parser import parse_content
+
 from page_analyzer.db import url_repo
+from page_analyzer.parser import parse_content
 from page_analyzer.validators import normalize_url, validate
 
 load_dotenv()
