@@ -7,4 +7,4 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
       - run: pip install ruff
-      - run: make lint
+      - run: ruff check
