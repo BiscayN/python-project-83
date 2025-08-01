@@ -25,7 +25,9 @@
 
 <h2 class="mt-5 mb-3">Проверки</h2>
 <form method="post" action="{{ url_for('add_check', url_id=url.id) }}">
-    <button type="submit" class="btn btn-primary">Запустить проверку</button>
+    <input type="submit"
+           class="btn btn-primary"
+           value="Запустить проверку">
 </form>
 
 <div class="table-responsive mt-3">
