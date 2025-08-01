@@ -15,8 +15,8 @@ dependencies = [
 ]
 
 [build-system]
-requires = ["uv"]
-build-backend = "uv"
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
 
 [tool.ruff]
 line-length = 120
