@@ -1,13 +1,36 @@
 name: SonarCloud Scan
 
-on: [push, pull_request]
+on:
+  push:
+    branches: [main]
+  pull_request:
+    types: [opened, reopened, synchronize]
 
 jobs:
   sonarcloud:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: SonarSource/sonarcloud-github-action@master
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          pip install uv pytest coverage
+          make install
+
+      - name: Run tests with coverage
+        run: |
+          coverage run -m pytest
+          coverage xml
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarqube-scan-action@v5.0.0
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
@@ -15,3 +38,4 @@ jobs:
             -Dsonar.projectKey=BiscayN_python-project-83
             -Dsonar.organization=biscayn
             -Dsonar.python.coverage.reportPaths=coverage.xml
+            -Dsonar.analysis.autodetection.disabled=true
