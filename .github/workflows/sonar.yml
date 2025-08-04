@@ -13,13 +13,10 @@ jobs:
           fetch-depth: 0
 
       - name: SonarCloud Scan
-        uses: SonarSource/sonarqube-scan-action@v5.0.0
+        uses: SonarSource/sonarcloud-github-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
             -Dsonar.projectKey=BiscayN_python-project-83
             -Dsonar.organization=biscayn
-            -Dsonar.ci=true
-            -Dsonar.scm.provider=git
-            -Dsonar.analysis.autodetection.disabled=true
