@@ -9,3 +9,7 @@ Flask-приложение для анализа веб-страниц. Пров
 ## Демо
 Приложение доступно по адресу:
 [https://python-project-83-39uu.onrender.com](https://python-project-83-39uu.onrender.com)
+
+
+## Sonar Cloud Maintainability Status:
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=BiscayN_python-project-83&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=BiscayN_python-project-83)
